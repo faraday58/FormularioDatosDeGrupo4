@@ -1,15 +1,24 @@
 ﻿
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace FormularioDatosDeGrupo4
 {
     class Alumno
     {
+        #region Atributos
         private string nombre;
         private string numeroCuenta;
         private string materia;
-
+        #endregion
+        public Alumno(string nombre, string numeroCuenta, string materia)
+        {
+            Nombre = nombre;
+            NumeroCuenta = numeroCuenta;
+            Materia = materia;
+        }
+        #region Propiedades
         public string Nombre { 
             get => nombre; 
             set
@@ -40,8 +49,22 @@ namespace FormularioDatosDeGrupo4
                 }
             }
         }
-        public string Materia { get => materia; set => materia = value; }
-
+        public string Materia { 
+            get => materia;
+            set
+            {
+                if(value == ""  )
+                {
+                    materia = "Técnicas de Programación";
+                }
+                else
+                {
+                    materia = value;
+                }
+                
+            }
+        }
+        #endregion
         public string GeneraNumeroCuenta()
         {
             string numerocuenta = "";
